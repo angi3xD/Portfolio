@@ -1,0 +1,1292 @@
+// IMPORTAZIONE MODULI //
+@import 'variables';
+@import 'reset';
+
+// IMPORTAZIONE FONT DI GOOGLE FONTS //
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Poppins:wght@300;400;600&display=swap');
+
+// HEADER & NAVBAR STICKY //
+.navbar-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+    backdrop-filter: blur(8px);
+    background-color: rgba($bg-cream, 0.85);
+    border-bottom: 2px solid rgba($primary-red, 0.15);
+    transition: $transition-smooth;
+
+    .nav-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        // LOGO //
+        .nav-logo {
+            font-family: $font-title;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: $primary-red;
+
+            .sparkle {
+                color: $accent-pink;
+                font-size: 1.2rem;
+            }
+
+            .highlight {
+                font-family: $font-body;
+                font-size: 1rem;
+                font-weight: 300;
+                color: $text-dark;
+            }
+
+            &:hover {
+                transform: scale(1.03);
+            }
+        }
+
+        // MENU DI NAVIGAZIONE //
+        .nav-menu {
+            ul {
+                display: flex;
+                align-items: center;
+                gap: 30px;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+    
+            a {
+                font-weight: 600;
+                font-size: 0.95rem;
+                color: $text-dark;
+                position: relative;
+        
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0%;
+                height: 2px;
+                background-color: $primary-red;
+                transition: $transition-smooth;
+            }
+
+            &:hover::after, &.active::after {
+                width: 100%;
+            }
+
+            &:hover {
+                color: $primary-red;
+            }
+        }
+
+        // BOTTONE "CONTATTAMI" //
+        .btn-nav {
+            background-color: $primary-red;
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 2px solid  $primary-red;
+
+            &::after {
+                display: none;
+            }
+
+            &:hover {
+                background-color: transparent;
+                color: $primary-red !important;
+                box-shadow: 0 4px 15px rgba($primary-red, 0.3);
+            }
+        }
+    }
+}
+
+// HERO SECTION //
+.hero-section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    .hero-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+
+        @media (max-width: 768px) {
+            flex-direction: column-reverse;
+            text-align: center;
+        }
+    }
+
+    // COLONNA TESTO //
+    .hero-content {
+        flex: 1;
+
+        .badge-tag {
+            display: inline-block;
+            background-color: $soft-pink;
+            color: $primary-red;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            border: 1px solid rgba($primary-red, 0.2);
+        }
+
+        .hero-title {
+            font-family: $font-title;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: $text-dark;
+
+            .highlight-name {
+                color: $primary-red;
+                font-style: italic;
+            }
+
+            @media (max-width: 768px) {
+                font-size: 2.5rem;
+            }
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: lighten($text-dark, 15%);
+            margin-bottom: 35px;
+            max-width: 500px;
+        }
+
+        .hero-button {
+            display: flex;
+            gap: 15px;
+
+            @media (max-width: 768px) {
+                justify-content: center;
+            }
+        }
+
+    
+
+         // BOTTONE SECONDARIO //
+        .btn-secondary {
+            background-color: transparent;
+            color: $primary-red;
+            border: 2px solid $primary-red;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+
+            &:hover {
+                background-color: $soft-pink;
+                transform: translateY(-3px);
+            }
+        }          
+    }
+
+    // COLONNA IMMAGINE //
+    .hero-image-wrapper {
+        position: relative;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+
+        .hero-image-card {
+            width: 320px;
+            height: 420px;
+            border-radius: 180px 180px 20px 20px;
+            overflow: hidden;
+            border: 4px solid $primary-red;
+            box-shadow: 15px 15px 0px $soft-pink;
+            transition: $transition-smooth;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            &:hover {
+                transform: translateY(-5px, -5px);
+                box-shadow: 20px 20px 0px $accent-pink;
+            }
+        }
+
+        .sparkle-deco {
+            position: absolute;
+            color: $primary-red;
+            font-size: 2rem;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        .sparkle-top {
+            top: -10px;
+            right: 40px;
+        }
+
+        .sparkle-bottom {
+            bottom: 10px;
+            left: 30px;
+        }
+    }
+}
+
+// ANIMAZIONE DELLE STELLINE //
+@keyframes pulse {
+    0%, 100% {transform: scale(1); opacity: 1;}
+    50% {transform: scale(1.3); opacity: 0.6;}
+}
+
+
+// SEZIONE PROGETTI //
+.projects-section {
+    padding: 100px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+
+    .sparkle {
+        color: $primary-red;
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-family: $font-title;
+        font-size: 2.8rem;
+        color: $text-dark;
+        margin-right: 10px 0;
+    }
+
+    p {
+        color: lighten($text-dark, 20%);
+        font-size: 1.05rem;
+    }
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px 30px;
+}
+
+.project-card {
+    position: relative;
+    transition: $transition-smooth;
+
+    .folder-tab {
+        display: inline-block;
+        background-color: $soft-pink;
+        color: $primary-red;
+        font-weight: 700;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        padding: 6px 18px;
+        border-radius: 12px 12px 0 0;
+        border: 2px solid $primary-red;
+        border-bottom: none;
+        transform: translateY(2px);
+    }
+
+    .card-inner {
+        background-color: $white;
+        border: 2px solid $primary-red;
+        border-radius: 0 16px 16px 16px;
+        padding: 20px;
+        box-shadow: 8px 8px 8px $soft-pink;
+        transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .project-img {
+        height: 200px;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid rgba($primary-red, 0.15);
+        margin-bottom: 20px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .project-content {
+        .project-date {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: $accent-pink;
+        }
+
+        h3 {
+            font-family: $font-title;
+            font-size: 1.4rem;
+            margin: 6px 0 10px;
+            color: $text-dark;
+        }
+
+        p {
+            font-size: 0.9rem;
+            color: lighten($text-dark, 15%);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+
+            span {
+                background-color: $bg-cream;
+                color: $primary-red;
+                font-size: 0.75rem;
+                font-weight: 600;
+                padding: 4px 10px;
+                border-radius: 6px;
+            }
+        }
+
+        .btn-project {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: $primary-red;
+
+            span {
+                transform: transform 0.3s ease;
+                display: inline-block;
+            }
+
+            a:hover span {
+                transform: translateX(5px);
+            }
+        }
+    }
+
+    &:hover {
+        transform: translateY(-6px);
+
+        .card-inner {
+            box-shadow: 12px 12px 0px $accent-pink;
+        }
+    }
+}
+
+    .coming-soon {
+        .card-inner {
+            background-color: rgba($bg-cream, 0.6);
+            border-style: dashed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 380px;
+            text-align: center;
+        }
+
+        .sparkle-big {
+            font-size: 2.5rem;
+            color: $accent-pink;
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+// FOOTER //
+.main-footer {
+    background-color: $white;
+    border-top: 2px solid rgba($primary-red, 0.2);
+    margin-top: 60px;
+
+    .footer-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 50px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 30px;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    .footer-brand {
+        .footer-logo {
+            font-family: $font-title;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: $primary-red;
+
+            .sparkle {
+                color: $accent-pink;
+            }
+
+            .highlight {
+                font-family: $font-body;
+                font-size: 0.95rem;
+                font-weight: 300;
+                color: $text-dark;
+            }
+        }
+
+        p {
+            margin-top: 8px ;
+            font-size: 0.88rem;
+            color: lighten($text-dark, 25%);
+        }
+    }
+
+    .footer-socials {
+        span {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: $accent-pink;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            display: flex;
+            gap: 20px;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            
+
+            @media (max-width: 768px) {
+                justify-content: center;
+            }
+            
+            li {
+            a {
+                display: inline-block;
+                font-weight: 600;
+                font-size: 0.95rem;
+                color: $text-dark;
+                padding: 6px 14px;
+                background-color: $bg-cream;
+                border-radius: 20px;
+                border: 1px solid rgba($primary-red, 0.15);
+                text-decoration: none;
+                transition: all 0.3s ease;
+            
+                &:hover {
+                    background-color: $soft-pink;
+                    color: $primary-red;
+                    transform: translateY(-2px);
+                }
+            }
+        }
+    }
+}
+
+    .footer-bottom {
+        background-color: $bg-cream;
+        border-top: 1px solid rgba($primary-red, 0.1);
+        text-align: center;
+        padding: 15px 20px;
+
+        p {
+            font-size: 0.8rem;
+            color: lighten($text-dark,30%);
+        }
+    }
+}
+
+// SEZIONE CONTATTI //
+.contact-section {
+  padding: 80px 20px 100px;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  .contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+
+    @media (max-width: 850px) {
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+
+  // COLONNA INFO //
+  .contact-info {
+    flex: 1;
+
+    .badge-tag {
+      display: inline-block;
+      background-color: $soft-pink;
+      color: $primary-red;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      border: 1px solid rgba($primary-red, 0.2);
+    }
+
+    .contact-title {
+      font-family: $font-title;
+      font-size: 3.2rem;
+      line-height: 1.1;
+      color: $text-dark;
+      margin-bottom: 20px;
+
+      .highlight-text {
+        color: $primary-red;
+        font-style: italic;
+      }
+    }
+
+    .contact-desc {
+      font-size: 1.05rem;
+      color: lighten($text-dark, 15%);
+      margin-bottom: 35px;
+      line-height: 1.6;
+    }
+
+    .info-boxes {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .info-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background-color: $white;
+        padding: 16px 20px;
+        border-radius: 12px;
+        border: 1px solid rgba($primary-red, 0.15);
+        box-shadow: 4px 4px 0px $soft-pink;
+
+        .info-icon {
+          font-size: 1.4rem;
+          color: $primary-red;
+          background-color: $bg-cream;
+          width: 45px;
+          height: 45px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+        }
+
+        strong {
+          display: block;
+          font-size: 0.85rem;
+          color: $accent-pink;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        p {
+          font-weight: 600;
+          color: $text-dark;
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+
+  // COLONNA MODULO (FORM) //
+  .contact-form-wrapper {
+    flex: 1.2;
+    width: 100%;
+
+    .form-folder-tab {
+      display: inline-block;
+      background-color: $soft-pink;
+      color: $primary-red;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      padding: 6px 18px;
+      border-radius: 12px 12px 0 0;
+      border: 2px solid $primary-red;
+      border-bottom: none;
+      transform: translateY(2px);
+    }
+
+    .contact-form {
+      background-color: $white;
+      border: 2px solid $primary-red;
+      border-radius: 0 16px 16px 16px;
+      padding: 35px 30px;
+      box-shadow: 10px 10px 0px $soft-pink;
+
+      .form-group {
+        margin-bottom: 22px;
+
+        label {
+          display: block;
+          font-weight: 600;
+          font-size: 0.88rem;
+          color: $text-dark;
+          margin-bottom: 8px;
+        }
+
+        input,
+        textarea {
+          width: 100%;
+          padding: 12px 16px;
+          font-family: $font-body;
+          font-size: 0.95rem;
+          color: $text-dark;
+          background-color: $bg-cream;
+          border: 1.5px solid rgba($primary-red, 0.2);
+          border-radius: 10px;
+          outline: none;
+          transition: $transition-smooth;
+
+          &::placeholder {
+            color: lighten($text-dark, 45%);
+          }
+
+          &:focus {
+            border-color: $primary-red;
+            background-color: $white;
+            box-shadow: 0 0 0 3px rgba($primary-red, 0.15);
+          }
+        }
+
+        textarea {
+          resize: vertical;
+          min-height: 120px;
+        }
+      }
+
+      .btn-submit {
+        width: 100%;
+        background-color: $primary-red;
+        color: $white;
+        border: none;
+        padding: 14px 28px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        box-shadow: 0 8px 20px rgba($primary-red, 0.25);
+        transition: $transition-smooth;
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 12px 25px rgba($primary-red, 0.35);
+          background-color: darken($primary-red, 5%);
+        }
+      }
+    }
+  }
+}
+
+
+//  SEZIONE CV  //
+.cv-section {
+  padding: 60px 20px 100px;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  // Header del CV //
+  .cv-header-card {
+    background-color: $white;
+    border: 2px solid $primary-red;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 10px 10px 0px $soft-pink;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 50px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .badge-tag {
+      display: inline-block;
+      background-color: $soft-pink;
+      color: $primary-red;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      border: 1px solid rgba($primary-red, 0.2);
+    }
+
+    h1 {
+      font-family: $font-title;
+      font-size: 2.8rem;
+      color: $text-dark;
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      color: $primary-red;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: lighten($text-dark, 20%);
+      max-width: 600px;
+      font-size: 0.95rem;
+    }
+  }
+
+  // Griglia 2 Colonne per il CV //
+  .cv-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+
+    @media (max-width: 850px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Card Generica del CV
+  .cv-card {
+    background-color: $white;
+    border: 2px solid $primary-red;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 6px 6px 0px $soft-pink;
+    margin-bottom: 30px;
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      border-bottom: 1px dashed rgba($primary-red, 0.25);
+      padding-bottom: 10px;
+
+      .sparkle {
+        color: $primary-red;
+        font-size: 1.2rem;
+      }
+
+      h3 {
+        font-family: $font-title;
+        font-size: 1.4rem;
+        color: $text-dark;
+      }
+    }
+  }
+
+  // Sidebar List (Skills & Lingue) //
+  .skills-list {
+    list-style: none;
+    padding: 0;
+
+    li {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: $text-dark;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba($bg-cream, 0.8);
+
+      &::before {
+        content: "✦ ";
+        color: $accent-pink;
+      }
+    }
+  }
+
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+
+    li {
+      background-color: $bg-cream;
+      color: $primary-red;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba($primary-red, 0.15);
+    }
+  }
+
+  .languages-list {
+    list-style: none;
+    padding: 0;
+
+    li {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      color: $text-dark;
+
+      strong {
+        color: $primary-red;
+      }
+    }
+  }
+
+  // Timeline (Formazione & Esperienza) //
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    .timeline-item {
+      position: relative;
+      padding-left: 20px;
+      border-left: 2px solid $soft-pink;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -6px;
+        top: 4px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: $primary-red;
+      }
+
+      .timeline-date {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: $accent-pink;
+        letter-spacing: 0.5px;
+      }
+
+      h4 {
+        font-size: 1.1rem;
+        color: $text-dark;
+        margin: 4px 0 2px;
+      }
+
+      .timeline-place {
+        font-weight: 600;
+        font-size: 0.85rem;
+        color: lighten($text-dark, 25%);
+        margin-bottom: 8px;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: lighten($text-dark, 15%);
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+// --- STILE ATTESTATI CV ---
+.certificates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .cert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 12px;
+    background-color: $bg-cream;
+    border-radius: 10px;
+    border: 1px solid rgba($primary-red, 0.12);
+
+    .cert-icon {
+      font-size: 1.2rem;
+      color: $primary-red;
+      background-color: $white;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid rgba($primary-red, 0.15);
+    }
+
+    .cert-info {
+      h4 {
+        font-size: 1rem;
+        color: $text-dark;
+        margin-bottom: 2px;
+      }
+
+      .cert-issuer {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: $accent-pink;
+        margin-bottom: 6px;
+
+        span {
+          color: $text-dark;
+        }
+      }
+
+      .cert-desc {
+        font-size: 0.85rem;
+        color: lighten($text-dark, 20%);
+      }
+    }
+  }
+}
+
+// --- MARQUEE SCORREVOLE ---
+.marquee-wrapper {
+  background-color: $primary-red;
+  color: $white;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 12px 0;
+  border-top: 2px solid $text-dark;
+  border-bottom: 2px solid $text-dark;
+  transform: rotate(-1deg); // inclinazione stile magazine
+  margin: 40px 0;
+
+  .marquee-content {
+    display: inline-block;
+    animation: marquee 18s linear infinite;
+
+    span {
+      font-family: $font-title;
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      padding-right: 50px;
+    }
+  }
+}
+
+// Animazione movimento infinito
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+// TEXTURE A GRIGLIA ROSA //
+.bg-grid-pattern {
+    background-color: $bg-cream;
+    background-image: linear-gradient(rgba(190, 0, 28, 0.1) 1px, transparent 1px), 
+                      linear-gradient(90deg, rgba(190, 0, 28, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+// LINK PROGETTI & GALLERIA (MODALE) //
+.project-card .project-content {
+    .project-links {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .btn-project {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        font-family: inherit;
+
+        span { transition: transform 0.3s ease; }
+
+        &:hover span { transform: translateX(5px); }
+    }
+
+    .btn-github {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: $text-dark;
+        text-decoration: none;
+        border-bottom: 2px solid $soft-pink;
+        transition: $transition-smooth;
+
+        &:hover {
+            color: $primary-red;
+            border-bottom-color: $primary-red;
+        }
+    }
+}
+
+.project-modal {
+    .modal-content {
+        background-color: $bg-cream;
+        border: 2px solid $primary-red;
+        border-radius: 16px;
+        box-shadow: 12px 12px 0 $accent-pink;
+    }
+
+    .modal-header,
+    .modal-footer {
+        border-color: rgba($primary-red, 0.2);
+    }
+
+    .modal-title {
+        font-family: $font-title;
+        font-size: 1.5rem;
+        color: $text-dark;
+
+        .sparkle { color: $primary-red; }
+    }
+
+    .slide-frame {
+        height: 65vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $white;
+        border: 1px solid rgba($primary-red, 0.15);
+        border-radius: 10px;
+        overflow: hidden;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        // screenshot molto lunghi: si scorrono dentro il riquadro
+        &.slide-scroll {
+            display: block;
+            overflow-y: auto;
+
+            img {
+                display: block;
+                width: 100%;
+                max-width: 700px;
+                max-height: none;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .slide-caption {
+        text-align: center;
+        margin: 12px 0 0;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: $primary-red;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 48px;
+        height: 48px;
+        top: calc(32.5vh - 24px);
+        bottom: auto;
+        margin: 0 10px;
+        background-color: $primary-red;
+        border-radius: 50%;
+        opacity: 0.85;
+
+        &:hover { opacity: 1; }
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .project-modal .slide-frame { height: 55vh; }
+    .project-modal .carousel-control-prev,
+    .project-modal .carousel-control-next { top: calc(27.5vh - 24px); }
+}
+
+.project-modal .btn-modal-github {
+    display: inline-block;
+    background-color: $primary-red;
+    color: $white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 10px 22px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: $transition-smooth;
+
+    &:hover {
+        background-color: $accent-pink;
+        color: $white;
+    }
+}
+
+// MENU MOBILE (HAMBURGER) //
+.navbar-sticky {
+    // il bottone hamburger è nascosto su desktop
+    .nav-toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 44px;
+        height: 44px;
+        padding: 0 10px;
+        background: none;
+        border: 2px solid $primary-red;
+        border-radius: 12px;
+        cursor: pointer;
+
+        span {
+            display: block;
+            height: 2px;
+            background-color: $primary-red;
+            border-radius: 2px;
+            transition: $transition-smooth;
+        }
+
+        // quando il menu è aperto le tre linee diventano una X
+        &[aria-expanded="true"] {
+            span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+            span:nth-child(2) { opacity: 0; }
+            span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        }
+    }
+}
+
+// su desktop il menu è sempre visibile (annulla il "collapse" di Bootstrap)
+@media (min-width: 769px) {
+    .navbar-sticky .nav-menu.collapse {
+        display: block !important;
+        height: auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-sticky {
+        .nav-container {
+            flex-wrap: wrap;
+        }
+
+        .nav-toggle {
+            display: flex;
+        }
+
+        // il menu va a capo sotto logo e hamburger, a tutta larghezza
+        .nav-menu {
+            width: 100%;
+
+            ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 18px;
+                padding: 20px 0 10px;
+            }
+        }
+    }
+}
+
+
+// BOTTONE PRINCIPALE GLOBALE (vale in tutte le pagine, es. "Scarica PDF" nel CV) //
+.btn-primary {
+    display: inline-block;
+    background-color: $primary-red;
+    color: $white;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba($primary-red, 0.25);
+    transition: $transition-smooth;
+
+    &:hover {
+        color: $white;
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba($primary-red, 0.35);
+    }
+}
+
+// OTTIMIZZAZIONI MOBILE //
+@media (max-width: 768px) {
+
+    // HERO: meno spazio, foto più piccola, bottoni uno sotto l'altro
+    .hero-section {
+        padding: 40px 20px;
+
+        .hero-container {
+            gap: 30px;
+        }
+
+        .hero-image-wrapper .hero-image-card {
+            width: 220px;
+            height: 290px;
+        }
+
+        .hero-content .hero-button {
+            flex-direction: column;
+            align-items: stretch;
+
+            a {
+                text-align: center;
+            }
+        }
+    }
+
+    // PROGETTI: meno spazio e card "In arrivo" più bassa
+    .projects-section {
+        padding: 50px 20px;
+
+        .section-header {
+            margin-bottom: 35px;
+
+            h2 {
+                font-size: 2.1rem;
+            }
+        }
+
+        .coming-soon .card-inner {
+            min-height: 220px;
+        }
+    }
+
+    // FASCE ROSSE, CV, CONTATTI E FOOTER: meno spazio
+    .marquee-wrapper {
+        margin: 20px 0;
+    }
+
+    .cv-section {
+        padding: 30px 20px 60px;
+    }
+
+    .contact-section {
+        padding: 40px 20px 60px;
+    }
+
+    .main-footer {
+        margin-top: 30px;
+    }
+}
+
+.hero-section .hero-content .hero-button {
+    flex-wrap: wrap;
+
+    a {
+        white-space: nowrap;
+    }
+}
